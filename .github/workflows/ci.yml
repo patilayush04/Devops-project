@@ -54,7 +54,7 @@ jobs:
 
       - name: adding ec2 host to known hosts
         run: |
-          sudo mkdir -p ~/.ssh
+          mkdir -p ~/.ssh
           ssh-keyscan -H "$EC2_HOST" > ~/.ssh/known_hosts
 
         env:
