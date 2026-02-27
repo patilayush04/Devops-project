@@ -38,7 +38,7 @@ jobs:
         run: npm run lint
 
       - name: build backend image
-        run: docker built -t mern-backend ./server
+        run: docker build -t mern-backend ./server
 
       - name: build frontend image
         run: docker build -t mern-frontend ./client
@@ -63,7 +63,7 @@ jobs:
       - name: write ssh key 
         run: |
           echo "${EC2_KEY}" > ec2_key.pem
-          chmod 6000 ec2_key.pem
+          chmod 600 ec2_key.pem
 
         env:
           EC2_KEY: ${{ secrets.EC2_KEY }}
@@ -79,12 +79,13 @@ jobs:
             set -e 
             cd "${EC2_APP_DIR}"
 
-            git fetch -all
+            git fetch --all
             git reset --hard origin/main
 
-            docker compose up -d build
+            docker compose up -d --build
 
             docker image prune -f
+
 
             docker compose ps 
           EOF 
