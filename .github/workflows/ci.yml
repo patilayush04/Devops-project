@@ -81,7 +81,7 @@ jobs:
             cd "${EC2_APP_DIR}"
 
             git fetch --all
-            git reset --hard remote/origin
+            git reset --hard origin/main
 
             docker compose up -d --build
 
