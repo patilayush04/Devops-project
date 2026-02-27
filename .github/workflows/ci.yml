@@ -35,7 +35,7 @@ jobs:
 
       - name: Lint frontend
         working-directory: client
-        run: npm run Lint
+        run: npm run lint
 
       - name: build backend image
         run: docker build -t mern-backend ./server
