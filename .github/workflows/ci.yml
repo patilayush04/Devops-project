@@ -31,7 +31,7 @@ jobs:
 
       - name: Installing frontend dependencies
         working-directory: client
-        run: nom ci
+        run: npm ci
 
       - name: Lint frontend
         working-directory: client
