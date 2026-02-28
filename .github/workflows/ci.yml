@@ -50,7 +50,7 @@ jobs:
 
     steps:
     - name: checkout repo
-      run: actions/checkout@v4
+      uses: actions/checkout@v4
 
     - name: add ec2 host to known_hosts
       run: |
